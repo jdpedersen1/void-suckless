@@ -12,7 +12,7 @@ static const int showtab			= showtab_auto;        /* Default tab bar show mode *
 static const int toptab				= False;               /* False means bottom tab bar */
 static const Bool viewontag         = True;     /* Switch view on tag switch */
 static const int user_bh            = 25;        /* 0 means that dwm will calculate bar height, >= 1 means dwm will user_bh as bar height */
-static const char *fonts[]          = { "Monaco:size=10", "JoyPixels:pixelsize=14", "siji:pixelsize=14", "fontAwesome:size=10" };
+static const char *fonts[]          = { "Monaco:size=12", "JoyPixels:pixelsize=14", "siji:pixelsize=14", "fontAwesome:size=14" };
 static const char dmenufont[]       = "monospace:size=10";
 static const char col_gray1[]       = "#222222";
 static const char col_gray2[]       = "#444444";
@@ -27,8 +27,8 @@ static const char col_grn[]         = "#589072";
 static const char col_grn2[]        = "#10713c";
     static const char *colors[][4]      = {
            /*               fg         bg         border     float */
-    [SchemeNorm] = { col_gray3, col_black, col_black, col_gray2 },
-    [SchemeSel] =  { col_black, col_grn2,  col_grn2, col_white }, 	
+    [SchemeNorm] = { col_gray3, col_black, col_gray1, col_black },
+    [SchemeSel] =  { col_grn2, col_black,  col_grn2, col_white }, 	
     [SchemeTitle]  = { col_grn, col_black,  col_black  },
 };
 
@@ -97,14 +97,14 @@ static const Layout layouts[] = {
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
-static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
+static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_black, "-nf", col_gray3, "-sb", col_grn, "-sf", col_black, NULL };
 static const char *termcmd[]  = { "alacritty", NULL };
 static const char *layoutmenu_cmd = "layoutmenu.sh";
 
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
-	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
+	{ MODKEY|ShiftMask,             XK_d,      spawn,          {.v = dmenucmd } },
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY|ControlMask,           XK_w,      togglebar,      {0} },
 	{ MODKEY,                       XK_w,      tabmode,        {-1} },
