@@ -40,7 +40,7 @@ const char *spcmd1[] = {"st", "-n", "spterm", "-g", "120x34", NULL };
 const char *spcmd2[] = {"st", "-n", "spfm", "-g", "144x41", "-e", "ranger", NULL };
 const char *spcmd3[] = {"mailspring", "-g", "41x144",  NULL };
 const char *spcmd4[] = {"st", "-n", "spmenu", "-g", "120x34", "-e", "./scripts/testmenu.sh", NULL };
-const char *spcmd5[] = {"kitty", "-T", "spkeys", "--hold", "-e", "./scripts/hotkeys.sh", NULL };
+const char *spcmd5[] = {"kitty", "-T", "spkeys", "--hold", "-e", "./.local/scripts/hotkeys.sh", NULL };
 
 static Sp scratchpads[] = {
 	/* name          cmd  */
@@ -61,7 +61,7 @@ static const Rule rules[] = {
 	 */
 	/* class      instance    title       tags mask     isfloating   monitor */
 	{ "Gimp",	  NULL,			NULL,		0,				0,			 -1 },
-	{ "Firefox",  NULL,			NULL,		1 << 8,			0,			 -1 },
+	{ "Firefox",  NULL,			NULL,		0,			    0,			 -1 },
 	{ NULL,		  "spterm",		NULL,		SPTAG(0),		1,			 -1 },
 	{ NULL,		  "spfm",		NULL,		SPTAG(1),		1,			 -1 },
 	{ NULL,		  "mailspring",	NULL,		SPTAG(2),		1,			 -1 },
