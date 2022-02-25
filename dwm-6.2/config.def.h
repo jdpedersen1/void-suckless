@@ -12,7 +12,7 @@ static const int showtab			= showtab_auto;        /* Default tab bar show mode *
 static const int toptab				= False;               /* False means bottom tab bar */
 static const Bool viewontag         = True;     /* Switch view on tag switch */
 static const int user_bh            = 25;        /* 0 means that dwm will calculate bar height, >= 1 means dwm will user_bh as bar height */
-static const char *fonts[]          = { "Monaco:size=12", "JoyPixels:pixelsize=14", "siji:pixelsize=14", "fontAwesome:size=14" };
+static const char *fonts[]          = { "Hermit:size=12", "JoyPixels:pixelsize=14", "siji:pixelsize=14", "fontAwesome:size=14" };
 static const char dmenufont[]       = "monospace:size=10";
 static const char col_gray1[]       = "#222222";
 static const char col_gray2[]       = "#444444";
@@ -98,7 +98,7 @@ static const Layout layouts[] = {
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_black, "-nf", col_gray3, "-sb", col_grn, "-sf", col_black, NULL };
-static const char *termcmd[]  = { "alacritty", NULL };
+static const char *termcmd[]  = { "kitty", NULL };
 static const char *layoutmenu_cmd = "layoutmenu.sh";
 
 
