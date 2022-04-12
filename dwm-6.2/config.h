@@ -25,10 +25,11 @@ static const char col_yellow[]      = "#ffff00";
 static const char col_white[]       = "#ffffff";
 static const char col_grn[]         = "#589072";
 static const char col_grn2[]        = "#10713c";
+static const char col_blu[]         = "#007687";
     static const char *colors[][4]      = {
            /*               fg         bg         border     float */
     [SchemeNorm] = { col_gray3, col_black, col_gray1, col_black },
-    [SchemeSel] =  { col_grn2, col_black,  col_grn2, col_white }, 	
+    [SchemeSel] =  { col_blu, col_black,  col_blu, col_white }, 	
     [SchemeTitle]  = { col_grn, col_black,  col_black  },
 };
 
@@ -41,6 +42,7 @@ const char *spcmd2[] = {"st", "-n", "spfm", "-g", "144x41", "-e", "ranger", NULL
 const char *spcmd3[] = {"mailspring", "-g", "41x144",  NULL };
 const char *spcmd4[] = {"st", "-n", "spmenu", "-g", "120x34", "-e", "./scripts/testmenu.sh", NULL };
 const char *spcmd5[] = {"kitty", "-T", "spkeys", "--hold", "-e", "./.local/scripts/hotkeys.sh", NULL };
+const char *spcmd6[] = {"st", "-n", "menu", "-g", "75x34", "-e", "./.local/scripts/launch.sh", NULL };
 
 static Sp scratchpads[] = {
 	/* name          cmd  */
@@ -49,6 +51,7 @@ static Sp scratchpads[] = {
 	{"mailspring",  spcmd3},
     {"sptestmenu.sh", spcmd4},
     {"sphotkeys.sh", spcmd5},
+    {"menu",        spcmd6},
 };
 
 /* tagging */
@@ -62,11 +65,13 @@ static const Rule rules[] = {
 	/* class      instance    title       tags mask     isfloating   monitor */
 	{ "Gimp",	  NULL,			NULL,		0,				0,			 -1 },
 	{ "Firefox",  NULL,			NULL,		0,			    0,			 -1 },
+    { "st",       NULL,         NULL,       0,              1,           -1 },
 	{ NULL,		  "spterm",		NULL,		SPTAG(0),		1,			 -1 },
 	{ NULL,		  "spfm",		NULL,		SPTAG(1),		1,			 -1 },
 	{ NULL,		  "mailspring",	NULL,		SPTAG(2),		1,			 -1 },
     { NULL,       "spmenu",     NULL,       SPTAG(3),       1,           -1 },
     { NULL,       "spkeys",     NULL,       SPTAG(4),       1,           -1 },
+    { NULL,       "menu",       NULL,       SPTAG(5),       1,           -1 },
 };
 
 /* layout(s) */
@@ -104,14 +109,14 @@ static const char *layoutmenu_cmd = "layoutmenu.sh";
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
-	{ MODKEY|ShiftMask,             XK_d,      spawn,          {.v = dmenucmd } },
+/*	{ MODKEY,                       XK_d,      spawn,          {.v = dmenucmd } },*/
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY|ControlMask,           XK_w,      togglebar,      {0} },
 	{ MODKEY,                       XK_w,      tabmode,        {-1} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
-	{ MODKEY,                       XK_i,      incnmaster,     {.i = +1 } },
-	{ MODKEY,                       XK_d,      incnmaster,     {.i = -1 } },
+	{ MODKEY|ControlMask,           XK_i,      incnmaster,     {.i = +1 } },
+	{ MODKEY|ControlMask,           XK_d,      incnmaster,     {.i = -1 } },
 	{ MODKEY,                       XK_h,      setmfact,       {.f = -0.05} },
 	{ MODKEY,                       XK_l,      setmfact,       {.f = +0.05} },
 	{ MODKEY|ControlMask,           XK_Return, zoom,           {0} },
@@ -143,6 +148,7 @@ static Key keys[] = {
 	{ MODKEY,            			XK_e,	   togglescratch,  {.ui = 2 } },
     { MODKEY,                       XK_c,      togglescratch,  {.ui = 3 } },
     { MODKEY|ControlMask,           XK_h,      togglescratch,  {.ui = 4 } },
+    { MODKEY|ShiftMask,             XK_d,      togglescratch,  {.ui = 5 } },
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)
