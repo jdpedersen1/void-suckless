@@ -6,4 +6,5 @@
 * dwm blocks (for my status bar)
 * .dwm (autostart file)
 * patches I used
+
 ![](dwmscrot.png)
