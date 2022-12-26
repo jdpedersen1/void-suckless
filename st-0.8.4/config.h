@@ -5,7 +5,7 @@
  *
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
-static char *font = "Monaco:pixelsize=14:antialias=true:autohint=true";
+static char *font = "FantasqueSansMono:pixelsize=14:antialias=true:autohint=true";
 static int borderpx = 2;
 
 /*

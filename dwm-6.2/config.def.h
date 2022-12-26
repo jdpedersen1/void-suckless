@@ -1,6 +1,6 @@
 /* appearance */
 static const unsigned int borderpx  = 3;        /* border pixel of windows */
-static const unsigned int gappx     = 10;       /* gap pixel between windows */
+static const unsigned int gappx     = 5;       /* gap pixel between windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
@@ -25,7 +25,7 @@ static const char col_yellow[]      = "#ffff00";
 static const char col_white[]       = "#ffffff";
 static const char col_grn[]         = "#589072";
 static const char col_grn2[]        = "#10713c";
-static const char col_blu[]         = "#007687";
+static const char col_blu[]         = "#008080";
     static const char *colors[][4]      = {
            /*               fg         bg         border     float */
     [SchemeNorm] = { col_gray3, col_black, col_gray1, col_black },
